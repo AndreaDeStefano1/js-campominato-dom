@@ -1,0 +1,71 @@
+/* general */
+
+header{
+  background-color: rgb(247, 148, 31);
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+main{
+  background-color: rgb(10, 28, 55);
+  height: calc(100vh - 100px);
+  margin-top: 60px;
+}
+footer{
+  background-color: rgb(30, 30, 30);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  
+}
+
+
+/* MAIN */
+.box{
+  height: 600px;
+  width: 600px;
+  background-color: black;
+}
+.square{
+  border: 1px solid black;
+  background-color: brown;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 800
+}
+.square-49{
+  height: calc(100% / 7);
+  width: calc(100% / 7);
+}
+.square-81{
+  height: calc(100% / 9);
+  width: calc(100% / 9);
+}
+.square-100{
+  height: calc(100% / 10);
+  width: calc(100% / 10);
+}
+.square.even{
+  background-color: aqua;
+}
+.square.odd{
+  background-color: green;
+}
+.square.even{
+  background-color: red;
+}
+.blue{
+  background-color: blue;
+}
