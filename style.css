@@ -67,3 +67,6 @@ i{
   color: black;
   font-size: 30px;
 }
+.vis{
+  visibility: hidden;
+}

@@ -2,7 +2,6 @@ const box = document.querySelector('.box');
 const playButton = document.getElementById('start-game');
 const bombPositions = [];
 let score = document.getElementById('score-number');
-console.log(score);
 let scorePoint= 0;
 score.innerText = scorePoint;
 
@@ -23,7 +22,7 @@ function squareGenerator(n){
     const square = document.createElement('div');
     square.classList.add('square');
     const number = document.createElement('span');
-    number.classList.add('d-none');
+    number.classList.add('ciao');
     number.innerText = `${(i + 1)}`;
     square.append(number);
 
@@ -39,26 +38,11 @@ function squareGenerator(n){
 
     square.addEventListener('click', function(){
       
-      number.classList.remove('d-none');
+      number.classList.remove('ciao');
       if(bombPositions.includes(parseInt(this.innerText))){
         this.classList.add('bomb');
         this.innerHTML = '<i class="fa-solid fa-bomb"></i>';
-        const allSquare = document.querySelectorAll('.d-none');
-        console.log(allSquare);
-        for (let i = 0; i < allSquare.length; i++) {
-          const actualPos = allSquare[i].innerText;
-          console.log(actualPos);
-          for (let k = 0; k < bombPositions.length; k++) {
-            if (actualPos == bombPositions[k]) {
-              console.log(allSquare[i].outerHTML);
-              allSquare[i].classList.add('bomb');
-              allSquare[i].classList.remove('d-none');
-              allSquare[i].innerHTML = '<i class="fa-solid fa-bomb"></i>';
-            }
-            
-          }
-          
-        }
+        endGame();
         
       }else if((!this.className.includes('blue')) && (!this.className.includes('bomb'))){
         this.classList.add('blue');
@@ -99,5 +83,25 @@ function bombGenerator(n){
 }
 
 function endGame(){
+  // const allSquare = document.querySelectorAll('.ciao');
+  // for (let i = 0; i < allSquare.length; i++) {
+  //   const actualPos = allSquare[i].innerText;
+  //   for (let k = 0; k < bombPositions.length; k++) {
+  //     if (actualPos == bombPositions[k]) {
+  //       
+  //     }
+  //   }
+  // }
+  const bombToColor = document.querySelectorAll('div.square');
+  
+  for (let i = 0; i < bombToColor.length; i++) {
+    console.log(bombToColor[i].innerHTML);
+    console.log(bombToColor[i].innerText);
+    if(bombPositions.includes(parseInt(bombToColor[i].innerText))){
 
-}
+    bombToColor[i].classList.add('bomb');
+    bombToColor[i].classList.remove('ciao');
+    bombToColor[i].innerHTML = '<i class="fa-solid fa-bomb"></i>';
+  }
+  
+}}
