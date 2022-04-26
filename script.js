@@ -21,10 +21,10 @@ function squareGenerator(n){
   for (let i = 0; i < n; i++){
     const square = document.createElement('div');
     square.classList.add('square');
-    const number = document.createElement('span');
-    number.classList.add('ciao');
-    number.innerText = `${(i + 1)}`;
-    square.append(number);
+    square.classList.add('vis');
+
+    square.innerText = `${(i + 1)}`;
+
 
     if(n == 49){
       square.classList.add('square-49');
@@ -38,11 +38,19 @@ function squareGenerator(n){
 
     square.addEventListener('click', function(){
       
-      number.classList.remove('ciao');
+      square.classList.remove('vis');
       if(bombPositions.includes(parseInt(this.innerText))){
         this.classList.add('bomb');
         this.innerHTML = '<i class="fa-solid fa-bomb"></i>';
         endGame();
+
+        const revealSquare = document.querySelectorAll('.square')
+        for (let i = 0; i < revealSquare.length; i++) {
+          const element = revealSquare[i];
+          element.classList.add('game-stop')
+          
+        }
+        document.querySelectorAll('.square').cla
         
       }else if((!this.className.includes('blue')) && (!this.className.includes('bomb'))){
         this.classList.add('blue');
@@ -100,7 +108,7 @@ function endGame(){
     if(bombPositions.includes(parseInt(bombToColor[i].innerText))){
 
     bombToColor[i].classList.add('bomb');
-    bombToColor[i].classList.remove('ciao');
+    bombToColor[i].classList.remove('vis');
     bombToColor[i].innerHTML = '<i class="fa-solid fa-bomb"></i>';
   }
   

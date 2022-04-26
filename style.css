@@ -68,5 +68,8 @@ i{
   font-size: 30px;
 }
 .vis{
-  visibility: hidden;
+  color: rgb(10, 28, 55);
+}
+.game-stop{
+  pointer-events: none;
 }
